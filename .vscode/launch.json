@@ -7,7 +7,8 @@
             "request": "launch",
             "program": "${workspaceFolder}/run.py",
             "console": "integratedTerminal",
-            "args": ["--feature","0","--user","amueller"] 
+            "args": ["--feature","0","--user","amueller"],
+            "": "./env/bin/python"
         },
         {
             "name": "Run feature 1",
@@ -15,7 +16,8 @@
             "request": "launch",
             "program": "${workspaceFolder}/run.py",
             "console": "integratedTerminal",
-            "args": ["--feature","1","--user","amueller"] 
+            "args": ["--feature","1","--user","amueller"],
+            "python": "./env/bin/python" 
         },
         {
             "name": "Run feature 2",
@@ -23,7 +25,8 @@
             "request": "launch",
             "program": "${workspaceFolder}/run.py",
             "console": "integratedTerminal",
-            "args": ["--feature","2"] 
+            "args": ["--feature","2"] ,
+            "python": "./env/bin/python"
         },
         {
             "name": "Run feature 3",
@@ -31,14 +34,16 @@
             "request": "launch",
             "program": "${workspaceFolder}/run.py",
             "console": "integratedTerminal",
-            "args": ["--feature","3"] 
+            "args": ["--feature","3"] ,
+            "python": "./env/bin/python"
         },
         {
             "name": "Current File",
             "type": "debugpy",
             "request": "launch",
             "program": "${file}",
-            "console": "integratedTerminal"
+            "console": "integratedTerminal",
+            "python": "./env/bin/python"
         }
     ]
 }
