@@ -1,3 +1,6 @@
 python-dateutil
 pandas
 matplotlib
+networkx
+plotly
+scipy
