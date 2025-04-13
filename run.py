@@ -42,7 +42,8 @@ def parse_args():
     return ap.parse_args()
 
 
-
+# start program
+print()
 # Parse feature to call from command line arguments
 args = parse_args()
 # Add arguments to config so that they can be accessed in other parts of the application
