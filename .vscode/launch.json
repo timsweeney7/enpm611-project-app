@@ -16,7 +16,16 @@
             "request": "launch",
             "program": "${workspaceFolder}/run.py",
             "console": "integratedTerminal",
-            "args": ["--feature","1","--user","amueller"],
+            "args": ["--feature","1","--user","amueller","--dataset","0"],
+            "python": "./env/bin/python" 
+        },
+        {
+            "name": "Run feature 1 - All",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/run.py",
+            "console": "integratedTerminal",
+            "args": ["--feature","1","--user","amueller","--dataset","1"],
             "python": "./env/bin/python" 
         },
         {

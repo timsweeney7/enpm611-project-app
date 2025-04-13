@@ -13,11 +13,17 @@ class DataLoader:
     Loads the issue data into a runtime object.
     """
     
-    def __init__(self):
+    def __init__(self, dataset: int = 0):
         """
         Constructor
         """
-        self.data_path:str = config.get_parameter('ENPM611_PROJECT_DATA_PATH')
+        
+        if dataset == 0:
+            self.data_path:str = config.get_parameter('ENPM611_PROJECT_DATA_PATH')
+        elif dataset == 1:
+            self.data_path:str = config.get_parameter('ENPM611_PROJECT_DATA_ALL_PATH')
+        else:
+            raise ValueError("Invalid dataset selection.")
         
     def get_issues(self):
         """

@@ -9,6 +9,7 @@ import argparse
 
 import config
 from example_analysis import ExampleAnalysis
+from analysis_1 import Analysis1
 
 
 def parse_args():
@@ -35,6 +36,9 @@ def parse_args():
     ap.add_argument('--label', '-l', type=str, required=False,
                     help='Optional parameter for analyses focusing on a specific label')
     
+    ap.add_argument('--dataset', '-d', type=int, required=False,
+                    help="Select which dataset to use.  Not specifying defaults to dataset 0")
+    
     return ap.parse_args()
 
 
@@ -48,7 +52,7 @@ config.overwrite_from_args(args)
 if args.feature == 0:
     ExampleAnalysis().run()
 elif args.feature == 1:
-    pass # TODO call first analysis
+    Analysis1().run()
 elif args.feature == 2:
     pass # TODO call second analysis
 elif args.feature == 3:
