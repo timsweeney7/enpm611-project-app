@@ -1,49 +1,78 @@
-# ENPM611 Project Application Template
+# ENPM611 GitHub Issue Analysis Project
 
-This is the template for the ENPM611 class project. Use this template in conjunction with the provided data to implement an application that analyzes GitHub issues for the [poetry](https://github.com/python-poetry/poetry/issues) Open Source project and generates interesting insights.
+This application analyzes GitHub issues for the [poetry](https://github.com/python-poetry/poetry/issues) Open Source project and generates insightful visualizations. Our team has implemented three custom analyses that provide different perspectives on the project's issue management patterns.
 
-This application template implements some of the basic functions:
+## Analyses Implemented
 
-- `data_loader.py`: Utility to load the issues from the provided data file and returns the issues in a runtime data structure (e.g., objects)
-- `model.py`: Implements the data model into which the data file is loaded. The data can then be accessed by accessing the fields of objects.
-- `config.py`: Supports configuring the application via the `config.json` file. You can add other configuration paramters to the `config.json` file.
-- `run.py`: This is the module that will be invoked to run your application. Based on the `--feature` command line parameter, one of the three analyses you implemented will be run. You need to extend this module to call other analyses.
+### Example Analysis (Feature 0)
 
-With the utility functions provided, you should focus on implementing creative analyses that generate intersting and insightful insights.
+This is the template analysis that shows basic statistics and displays a bar chart of the top 50 issue creators.
 
-In addition to the utility functions, an example analysis has also been implemented in `example_analysis.py`. It illustrates how to use the provided utility functions and how to produce output.
+### Analysis 1 - Issue Creation Trends (Feature 1)
+
+This analysis visualizes the trend of issue creation over time. It plots issue creation frequency across the project's timeline, allowing you to see patterns in project activity. You can filter results for a specific user with the `--user` parameter.
+
+### Analysis 2 - Contributor Network Analysis (Feature 2)
+
+This analysis creates an interactive network visualization showing the connections between users in the Poetry project. It displays how different contributors interact with each other across issues, highlighting the project's collaboration patterns.
+
+### Analysis 3 - Issue Lifecycle Analysis (Feature 3)
+
+This analysis examines how long issues remain open and identifies patterns in issue resolution. It provides:
+
+-   A distribution of issue resolution times (with mean and median markers)
+-   Top users by average resolution speed
+-   Correlation between comment count and resolution time
+-   Summary statistics on issue resolution patterns
 
 ## Setup
 
-To get started, your team should create a fork of this repository. Then, every team member should clone your repository to their local computer. 
+To get started with this project:
 
-
-### Install dependencies
-
-In the root directory of the application, create a virtual environment, activate that environment, and install the dependencies like so:
+1. Clone this repository to your local computer
+2. Create a virtual environment and install dependencies:
 
 ```
 pip install -r requirements.txt
 ```
 
-### Download and configure the data file
+3. Download the data file (in `json` format) from the project assignment in Canvas
+4. Update the `config.json` with the path to the file or set the environment variable `ENPM611_PROJECT_DATA_PATH`
 
-Download the data file (in `json` format) from the project assignment in Canvas and update the `config.json` with the path to the file. Note, you can also specify an environment variable by the same name as the config setting (`ENPM611_PROJECT_DATA_PATH`) to avoid committing your personal path to the repository.
+## Running the Analyses
 
-
-### Run an analysis
-
-With everything set up, you should be able to run the existing example analysis:
+Run any of the implemented analyses using the following command:
 
 ```
-python run.py --feature 0
+python run.py --feature <feature_number>
 ```
 
-That will output basic information about the issues to the command line.
+Where `<feature_number>` is:
 
+-   0: Example Analysis
+-   1: Issue Creation Trends
+-   2: Contributor Network Analysis
+-   3: Issue Lifecycle Analysis
 
-## VSCode run configuration
+### Optional Parameters
 
-To make the application easier to debug, runtime configurations are provided to run each of the analyses you are implementing. When you click on the run button in the left-hand side toolbar, you can select to run one of the three analyses or run the file you are currently viewing. That makes debugging a little easier. This run configuration is specified in the `.vscode/launch.json` if you want to modify it.
+You can customize the analyses with these additional parameters:
 
-The `.vscode/settings.json` also customizes the VSCode user interface sligthly to make navigation and debugging easier. But that is a matter of preference and can be turned off by removing the appropriate settings.
+-   `--user <username>`: Filter analysis for a specific user (used in features 0 and 1)
+-   `--label <label>`: Filter issues by a specific label (used in feature 3)
+-   `--dataset <number>`: Select which dataset to use (defaults to 0)
+
+Example:
+
+```
+python run.py --feature 1 --user sdispater
+```
+
+## VSCode Configuration
+
+This project includes VSCode configuration files to make development easier:
+
+-   Runtime configurations for debugging each analysis in `.vscode/launch.json`
+-   UI customizations in `.vscode/settings.json` to improve navigation and debugging
+
+To use these features, open the run button in the left sidebar and select the analysis you want to run.
