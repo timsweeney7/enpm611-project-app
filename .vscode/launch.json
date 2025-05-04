@@ -25,6 +25,15 @@
             "request": "launch",
             "program": "${workspaceFolder}/run.py",
             "console": "integratedTerminal",
+            "args": ["--feature","1","--dataset","1"],
+            "python": "./env/bin/python" 
+        },
+        {
+            "name": "Run feature 1 - usr_abn",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/run.py",
+            "console": "integratedTerminal",
             "args": ["--feature","1","--dataset","1","--user","abn"],
             "python": "./env/bin/python" 
         },

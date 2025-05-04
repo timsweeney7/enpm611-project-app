@@ -42,20 +42,21 @@ class Analysis1:
         
         # get dates from dataframe
         dates = df['date created']
+        min_date = min(dates)
+        max_date = max(dates)
+        print("Min date: ", min_date, "\tMax date: ", max_date)
+        num_of_months = (max_date.year - min_date.year) * 12 + (max_date.month-min_date.month)
         
         # Convert to matplotlib date numbers
         date_nums = mdates.date2num(dates)
 
         # Define number of bins (e.g., weekly, monthly, etc.)
-        counts, bin_edges = np.histogram(date_nums, bins=20)
+        counts, bin_edges = np.histogram(date_nums, bins=num_of_months)
 
         # Find midpoints of each bin for plotting
         bin_midpoints = 0.5 * (bin_edges[1:] + bin_edges[:-1])
 
 
-        # set the seaborn theme
-        sns.set_theme()
-        
         # Plot the trend line
         plt.plot(bin_midpoints, counts, marker=None)
         
